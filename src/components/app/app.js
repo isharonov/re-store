@@ -1,15 +1,14 @@
 import React from "react";
 import "./app.css";
-import ErrorBoundry from "../error-boundry";
+import withBookstoreService from "../hoc/with-bookstore-service";
 
-const App = () => {
+const App = ({ bookstoreService }) => {
+  console.log(bookstoreService.getBooks());
   return (
-    <ErrorBoundry>
-      <div className="app">
-        <h1>Re-Store</h1>
-      </div>
-    </ErrorBoundry>
+    <div className="app">
+      <h1>Re-Store</h1>
+    </div>
   );
 };
 
-export default App;
+export default withBookstoreService()(App);
